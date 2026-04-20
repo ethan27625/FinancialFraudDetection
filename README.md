@@ -29,7 +29,25 @@ This project followed a standard machine learning pipeline with four main phases
 
 # Exploration
 
-I began the exploration phase by examining the class distribution and found the dataset is heavily imbalanced with fraud making up only 0.13% of all transactions. A critical finding was that fraud only occurs in TRANSFER and CASH_OUT transactions. I also found that 98.1% of fraudulent transactions drain the origin account balance to zero. The existing isFlaggedFraud system only caught 16 out of 8,213 actual fraud cases.
+I began the exploration phase by examining the class distribution and found the dataset is heavily imbalanced with fraud making up only 0.13% of all transactions.
+
+# Fraud Distribution 
+![alt text](images/fraud_distribution.png)
+
+ A critical finding was that fraud only occurs in TRANSFER and CASH_OUT transactions. No fraud was found in PAYMENT, CASH_IN, or DEBIT types.
+# Fraud by Transaction Type
+![alt text](images/fraud_by_type.png)
+ 
+  I also found that 98.1% of fraudulent transactions drain the origin account balance to zero. The existing isFlaggedFraud system only caught 16 out of 8,213 actual fraud cases.
+
+# Transaction Amount by Fraud Status
+![alt text](images/amount_by_fraud.png)
+
+# Correlation Heatmap
+![alt text](images/correlation_heatmap.png)
+
+# Amount vs Origin Balance for Fraud-Prone Types
+![alt text](images/amount_vs_balance.png)
 
 ---
 
@@ -47,6 +65,15 @@ The dataset had no missing values or duplicates. The following steps were taken 
 # Model Creation
 
 I built a RandomForestClassifier with class_weight set to balanced to handle the severe class imbalance. Since the full dataset has over 6 million rows a stratified sample was used for training. After training a baseline model I used RandomizedSearchCV to find optimal hyperparameters.
+
+# Feature Importance
+![alt text](images/feature_importance.png)
+
+# Confusion Matrix - Tuned Model
+![alt text](images/confusion_matrix.png)
+
+# Precision-Recall Curve
+![alt text](images/precision_recall_curve.png)
 
 ---
 
