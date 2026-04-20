@@ -56,8 +56,8 @@ I began the exploration phase by examining the class distribution and found the 
 The dataset had no missing values or duplicates. The following steps were taken during cleaning:
 
 - Dropped nameOrig and nameDest columns which were unique identifiers that would not generalize
-- Dropped isFlaggedFraud which was the existing naive flag that caught only 16 out of 8,213 fraught cases
-- Engineered new features: orig_balance_drained, orig_balance_error, best_balance_error
+- Dropped isFlaggedFraud which was the existing naive flag that caught only 16 out of 8,213 fraud cases
+- Engineered new features: orig_balance_drained, orig_balance_error, dest_balance_error
 - One-hot encoded the transaction type column
 
 ---
